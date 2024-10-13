@@ -8,5 +8,5 @@ router.post("/sign-in", UserController.signIn);
 router.get("/get-detail-user", UserController.getDetailUser);
 router.post("/refresh-token", JWTService.refreshTokenJwtService);
 router.put("/update-profile", UserController.updateProfile);
-
+router.get("/test", UserController.test);
 module.exports = router;
