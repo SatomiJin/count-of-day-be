@@ -1,13 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
 import * as connectDB from "./config/connectDB";
-import Cors from "cors";
+const cors = require("cors");
 import initWebRoute from "./routes/index";
 require("dotenv").config();
 
 let app = express();
 
-app.use(Cors());
+app.use(cors());
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 

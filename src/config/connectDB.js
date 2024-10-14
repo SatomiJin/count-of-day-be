@@ -7,11 +7,12 @@ const sequelize = new Sequelize(process.env.DB_DATABASE_NAME, process.env.DB_USE
   port: 5432,
   dialect: process.env.DB_DIALECT,
   logging: false,
+  dialectModule: pg,
   query: {
     raw: true,
   },
   timezone: "+07:00",
-  // ssl: false,
+  ssl: false,
   dialectOptions: {
     ssl: {
       require: true,
