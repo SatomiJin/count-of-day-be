@@ -1,4 +1,5 @@
 require("dotenv").config();
+import * as pg from "pg";
 
 const { Sequelize } = require("sequelize");
 // Option 3: Passing parameters separately (other dialects)
