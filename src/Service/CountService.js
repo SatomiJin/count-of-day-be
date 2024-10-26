@@ -35,7 +35,7 @@ const plusCount = async (data) => {
       };
     }
     let count = await db.Count.findOne({
-      where: { email: data.email },
+      where: { id: 1 },
     });
 
     if (!count) {
