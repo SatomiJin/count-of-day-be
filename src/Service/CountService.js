@@ -44,15 +44,18 @@ const plusCount = async (data) => {
         message: "The count of days is not exist!!",
       };
     } else {
-      let currentDay = new Date().getDay();
-      let currentMonth = new Date().getMonth();
-
-      let countDay = new Date(count.time).getDay();
-      let countMonth = new Date(count.time).getMonth();
-      if (currentDay > countDay && currentMonth >= countMonth) {
+      let currentDate = new Date().toISOString();
+      let currentDateNew = new Date(currentDate);
+      let oldDate = count.time.toISOString();
+      let oldDateNew = new Date(oldDate);
+      if (
+        oldDateNew.getFullYear() <= currentDateNew.getFullYear() &&
+        oldDateNew.getMonth() <= currentDateNew.getMonth() &&
+        oldDateNew.getDate() < currentDateNew.getDate()
+      ) {
         count.countOfDay += 1;
         count.email = data.email;
-        count.time = new Date();
+        count.time = currentDateNew;
         await count.save();
         return {
           status: "OK",
