@@ -21,6 +21,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      type: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      sticker: {
+        allowNull: false,
+        type: Sequelize.JSONB,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

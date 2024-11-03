@@ -14,6 +14,8 @@ const createNote = async (data) => {
       email: data.email,
       messageNote: data.messageNote,
       timeCreate: date,
+      type: data.type || "message",
+      sticker: data.sticker,
     });
     return {
       status: "OK",
