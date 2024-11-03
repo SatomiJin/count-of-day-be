@@ -4,6 +4,8 @@ const createCount = async (req, res) => {
     let response = await CountService.createCount(req.body);
     return res.status(200).json(response);
   } catch (e) {
+    console.log(e);
+
     return res.status(400).json({
       status: "ERROR",
       message: "Error from server",
@@ -15,6 +17,7 @@ const plusCount = async (req, res) => {
     let response = await CountService.plusCount(req.body);
     return res.status(200).json(response);
   } catch (e) {
+    console.log(e);
     return res.status(400).json({
       status: "ERROR",
       message: "Error from server",
@@ -27,6 +30,8 @@ const getDay = async (req, res) => {
     let response = await CountService.getDay(req.body);
     return res.status(200).json(response);
   } catch (e) {
+    console.log(e);
+
     return res.status(400).json({
       status: "ERROR",
       message: "Error from server",
