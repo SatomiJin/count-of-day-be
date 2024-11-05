@@ -55,7 +55,24 @@ const getAllNote = async (data) => {
       attributes: {
         exclude: ["createdAt", "updatedAt"],
       },
+      include: [
+        {
+          model: db.User,
+          as: "author",
+          attributes: ["image"], // chỉ lấy các thuộc tính cần thiết
+        },
+      ],
+      raw: false,
+      nest: true,
     });
+    if (messages) {
+      messages.map((item) => {
+        if (item && item.author && item.author.image) {
+          item.author.image = Buffer.from(item.author.image, "base64").toString("binary");
+          // console.log("a");
+        }
+      });
+    }
     return {
       status: "OK",
       message: "Get all message is success!!",
